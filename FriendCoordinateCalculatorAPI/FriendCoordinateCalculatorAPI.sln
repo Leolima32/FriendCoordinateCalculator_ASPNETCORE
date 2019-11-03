@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{01875DE7-20E0-4AF7-A523-14FDBDE3ADD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{01875DE7-20E0-4AF7-A523-14FDBDE3ADD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5E4D174D-3ED9-4FE3-A3E2-14781928A44F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{5E4D174D-3ED9-4FE3-A3E2-14781928A44F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{9BAF55A0-E0C2-4059-BC1F-53A6FD958B62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{9BAF55A0-E0C2-4059-BC1F-53A6FD958B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{68C01EB5-BC0F-4264-A03A-65F4B6FE461F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{68C01EB5-BC0F-4264-A03A-65F4B6FE461F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6BC36A58-5753-40E8-97DF-296B2A300A75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{01875DE7-20E0-4AF7-A523-14FDBDE3ADD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +71,23 @@ Global
 		{68C01EB5-BC0F-4264-A03A-65F4B6FE461F}.Release|x64.Build.0 = Release|Any CPU
 		{68C01EB5-BC0F-4264-A03A-65F4B6FE461F}.Release|x86.ActiveCfg = Release|Any CPU
 		{68C01EB5-BC0F-4264-A03A-65F4B6FE461F}.Release|x86.Build.0 = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|x64.Build.0 = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Debug|x86.Build.0 = Debug|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|x64.ActiveCfg = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|x64.Build.0 = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|x86.ActiveCfg = Release|Any CPU
+		{6BC36A58-5753-40E8-97DF-296B2A300A75}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1C27CA0-A652-4A16-BA1D-7339257FD5BE}
 	EndGlobalSection
 EndGlobal
