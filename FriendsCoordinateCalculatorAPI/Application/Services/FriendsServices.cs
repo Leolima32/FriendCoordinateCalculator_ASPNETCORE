@@ -6,7 +6,7 @@ namespace Application.Services
 {
     public class FriendsServices : IFriendsService
     {
-        public bool AddFriend(AddFriendViewModel viewModel)
+        public bool AddFriend(FriendViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }

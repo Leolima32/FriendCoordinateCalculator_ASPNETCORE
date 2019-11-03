@@ -4,6 +4,6 @@ namespace Application.Interfaces
 {
     public interface IFriendsService
     {
-        bool AddFriend(AddFriendViewModel viewModel);
+        bool AddFriend(FriendViewModel viewModel);
     }
 }

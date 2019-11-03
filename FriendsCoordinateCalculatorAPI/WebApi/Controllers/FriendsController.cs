@@ -13,7 +13,7 @@ namespace WebApi.Controllers
             _friendsService = friendsService;
         }
 
-        public IActionResult Post(AddFriendViewModel viewModel)
+        public IActionResult Post(FriendViewModel viewModel)
         {
             return Ok(_friendsService.AddFriend(viewModel));
         }
