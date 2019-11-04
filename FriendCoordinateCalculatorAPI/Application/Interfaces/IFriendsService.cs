@@ -1,9 +1,16 @@
 ﻿using Application.ViewModels;
+using Domain.Entities;
+using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
     public interface IFriendsService
     {
-        bool AddFriend(FriendViewModel viewModel);
+        Task AddFriend(FriendViewModel viewModel);
+        Task<IEnumerable<Friend>> ClosestFriends(string id);
+        Task<IEnumerable<Friend>> GetAll();
     }
 }

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Interfaces;
 using Application.Services;
+using Infra.Context;
+using Infra.Interfaces;
+using Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using AutoMapper;
 
 namespace WebApi
 {
@@ -28,7 +32,25 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddTransient<IFriendsService, FriendsServices>();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            //Options
+            services.Configure<Settings>(options =>
+            {
+                options.ConnectionString
+                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database
+                    = Configuration.GetSection("MongoConnection:Database").Value;
+            });
+
+            //Services
+            services.AddSingleton<IFriendsService, FriendsServices>();
+
+            //Repositories
+            services.AddSingleton<IFriendsRepository, FriendsRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,5 +68,6 @@ namespace WebApi
             app.UseHttpsRedirection();
             app.UseMvc();
         }
+
     }
 }

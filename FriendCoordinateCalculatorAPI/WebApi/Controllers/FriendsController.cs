@@ -1,6 +1,10 @@
 using Application.Interfaces;
 using Application.ViewModels;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
@@ -13,9 +17,23 @@ namespace WebApi.Controllers
             _friendsService = friendsService;
         }
 
-        public IActionResult Post(FriendViewModel viewModel)
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]FriendViewModel viewModel)
         {
-            return Ok(_friendsService.AddFriend(viewModel));
+            await _friendsService.AddFriend(viewModel);
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Friend>> GetAllFriends()
+        {
+            return await _friendsService.GetAll();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IEnumerable<Friend>> GetClosestFriends(string id)
+        {
+            return await _friendsService.ClosestFriends(id);
         }
     }
 }

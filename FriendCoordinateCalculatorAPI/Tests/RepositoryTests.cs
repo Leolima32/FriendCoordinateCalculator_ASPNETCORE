@@ -14,10 +14,10 @@ namespace Tests
             mockFriend = new Friend("Alex", new Coordinate(100M, 200M));
             _friendsRepository = reposioty;
         }
-        [Fact]
-        public void ShouldAddFriend()
-        {
-            Assert.True(_friendsRepository.AddFriend(mockFriend));
-        }
+        //[Fact]
+        //public void ShouldAddFriend()
+        //{
+        //    Assert.True(_friendsRepository.AddFriend(mockFriend));
+        //}
     }
 }

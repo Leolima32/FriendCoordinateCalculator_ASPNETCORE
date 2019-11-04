@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,7 @@ namespace Domain.Entities
             Position = position;
         }
 
+        public ObjectId _id { get; set; }
         public string Name { get; private set; }
         public Coordinate Position { get; private set; }
 
