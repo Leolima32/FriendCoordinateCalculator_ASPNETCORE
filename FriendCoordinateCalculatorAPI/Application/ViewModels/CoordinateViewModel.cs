@@ -7,7 +7,7 @@ namespace Application.ViewModels
             Longitude = _longitude;
             Latitude = _latitude;
         }
-        public decimal Longitude { get; private set; }
-        public decimal Latitude { get; private set; }
+        public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
     }
 }

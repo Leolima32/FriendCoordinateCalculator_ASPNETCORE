@@ -11,6 +11,7 @@ namespace Application.AutoMapper
             ShouldMapField = fieldInfo => true;
             ShouldMapProperty = propertyInfo => true;
             CreateMap<Friend, FriendViewModel>();
+            CreateMap<Coordinate, CoordinateViewModel>();
         }
     }
 }

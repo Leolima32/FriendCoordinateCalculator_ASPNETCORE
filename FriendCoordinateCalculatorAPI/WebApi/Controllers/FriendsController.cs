@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Post([FromBody]FriendViewModel viewModel)
         {
             await _friendsService.AddFriend(viewModel);
-            return Ok();
+            return Ok(new { Message = "Success!", StatusCode = 200});
         }
 
         [HttpGet]
