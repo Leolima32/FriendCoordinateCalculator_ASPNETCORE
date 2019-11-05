@@ -1,6 +1,7 @@
 using Application.Interfaces;
 using Application.ViewModels;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Post([FromBody]FriendViewModel viewModel)
         {
             await _friendsService.AddFriend(viewModel);
