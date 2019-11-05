@@ -18,6 +18,7 @@ using Microsoft.Extensions.Options;
 using AutoMapper;
 using Application.AutoMapper;
 using WebApi.Filters;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApi
 {
@@ -51,13 +52,17 @@ namespace WebApi
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Friend Coordinate Calcultor", Version = "v1" });
+            });
+
+
             //Services
             services.AddSingleton<IFriendsService, FriendsServices>();
 
             //Repositories
             services.AddSingleton<IFriendsRepository, FriendsRepository>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +76,14 @@ namespace WebApi
             {
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Friend Coordinate Calcultor");
+            });
+
 
             app.UseHttpsRedirection();
             app.UseMvc();
