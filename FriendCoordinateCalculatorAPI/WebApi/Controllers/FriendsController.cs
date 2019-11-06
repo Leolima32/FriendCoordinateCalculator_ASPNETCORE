@@ -27,12 +27,14 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<Friend>> GetAllFriends()
         {
             return await _friendsService.GetAll();
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IEnumerable<Friend>> GetClosestFriends(string id)
         {
             return await _friendsService.ClosestFriends(id);
