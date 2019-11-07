@@ -8,6 +8,7 @@ using MongoDB.Bson;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using System;
 
 namespace Application.Services
 {
@@ -38,7 +39,7 @@ namespace Application.Services
             IEnumerable<Friend> friendsList = await _friendsRepository.GetAll();
             foreach (Friend friend in friendsList)
             {
-                var calcLog = new CalculationHistoryLog(friend, friend.CalculateDistance(currentFriend.Position));
+                var calcLog = new CalculationHistoryLog(friend, friend.CalculateDistance(currentFriend.Position), DateTime.Now);
                 await _logRepository.SaveCalculationHistory(calcLog);
             }
             return friendsList.OrderBy(friend => friend.DistanceToCurrentPositon).Take(3);
