@@ -11,7 +11,7 @@ namespace Tests
         private readonly IFriendsRepository _friendsRepository;
         public RepositoryTests(IFriendsRepository reposioty)
         {
-            mockFriend = new Friend("Alex", new Coordinate(100M, 200M));
+            mockFriend = new Friend("Alex", new Coordinate(100, 200));
             _friendsRepository = reposioty;
         }
         //[Fact]

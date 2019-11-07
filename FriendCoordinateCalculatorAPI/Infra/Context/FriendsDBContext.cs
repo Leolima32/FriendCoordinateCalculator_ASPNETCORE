@@ -25,5 +25,13 @@ namespace Infra.Context
                 return _database.GetCollection<Friend>("Friend");
             }
         }
+
+        public IMongoCollection<CalculationHistoryLog> CalculationHistoryLogs
+        {
+            get
+            {
+                return _database.GetCollection<CalculationHistoryLog>("CalculationHistoryLog");
+            }
+        }
     }
 }

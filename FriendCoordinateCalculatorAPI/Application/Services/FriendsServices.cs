@@ -7,35 +7,46 @@ using Infra.Interfaces;
 using MongoDB.Bson;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Application.Services
 {
     public class FriendsServices : IFriendsService
     {
         private readonly IMapper _mapper;
-        private readonly IFriendsRepository _repository;
+        private readonly IFriendsRepository _friendsRepository;
+        private readonly ICalculationHistoryLogRepository _logRepository;
 
-        public FriendsServices(IMapper mapper, IFriendsRepository repository)
+        public FriendsServices(
+            IMapper mapper, 
+            IFriendsRepository friendsRepository,
+            ICalculationHistoryLogRepository logRepository)
         {
             _mapper = mapper;
-            _repository = repository;
+            _friendsRepository = friendsRepository;
+            _logRepository = logRepository;
         }
 
         public async Task AddFriend(FriendViewModel viewModel)
         {
-            await _repository.AddFriend(_mapper.Map<Friend>(viewModel));
+            await _friendsRepository.AddFriend(_mapper.Map<Friend>(viewModel));
         }
 
         public async Task<IEnumerable<Friend>> ClosestFriends(string _id)
         {
-            Friend currentFriend = await _repository.GetById(_id);
-            IEnumerable<Friend> allFriends = await _repository.GetAll();
-            return allFriends;
+            Friend currentFriend = await _friendsRepository.GetById(_id);
+            IEnumerable<Friend> friendsList = await _friendsRepository.GetAll();
+            foreach (Friend friend in friendsList)
+            {
+                var calcLog = new CalculationHistoryLog(friend, friend.CalculateDistance(currentFriend.Position));
+                await _logRepository.SaveCalculationHistory(calcLog);
+            }
+            return friendsList.OrderBy(friend => friend.DistanceToCurrentPositon).Take(3);
         }
 
         public async Task<IEnumerable<Friend>> GetAll()
         {
-            return await _repository.GetAll();
+            return await _friendsRepository.GetAll();
         }
     }
 }

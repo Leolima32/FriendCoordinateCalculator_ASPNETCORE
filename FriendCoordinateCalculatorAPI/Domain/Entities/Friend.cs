@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,16 +18,13 @@ namespace Domain.Entities
         public string Name { get; private set; }
         public Coordinate Position { get; private set; }
 
-        public decimal CalculateDistance(Coordinate currentPosition)
-        {
-            //TODO: Implement
-            return Position.Longitude - currentPosition.Longitude;
-        }
+        [BsonIgnore]
+        public double DistanceToCurrentPositon { get; set; }
 
-        public IEnumerable<Friend> VisitFriend()
+        public double CalculateDistance(Coordinate currentPosition)
         {
-            //TODO: Implement
-            return new List<Friend>();
+            DistanceToCurrentPositon = Math.Sqrt(Math.Pow((Position.Longitude - currentPosition.Longitude),2) + Math.Pow((Position.Latitude - currentPosition.Latitude),2));
+            return DistanceToCurrentPositon;
         }
     }
 }

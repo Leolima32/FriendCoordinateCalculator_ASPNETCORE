@@ -111,6 +111,7 @@ namespace WebApi
 
             //Repositories
             services.AddSingleton<IFriendsRepository, FriendsRepository>();
+            services.AddSingleton<ICalculationHistoryLogRepository, CalculationHistoryLogRepository>();
 
             //Identity
             services.AddScoped<RoleManager<IdentityRole>>();

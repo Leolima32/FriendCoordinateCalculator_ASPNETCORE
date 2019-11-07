@@ -6,13 +6,13 @@ namespace Domain.Entities
 {
     public class Coordinate
     {
-        public Coordinate(decimal longitude, decimal latitude)
+        public Coordinate(double longitude, double latitude)
         {
             Longitude = longitude;
             Latitude = latitude;
         }
 
-        public decimal Longitude { get; set; }
-        public decimal Latitude { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
     }
 }
