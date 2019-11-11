@@ -1,10 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { RegisterModel } from './register.model';
+import { UserModel } from '../shared/user.model';
 import { RegisterService } from './register.service';
 import { NotifierService } from 'angular-notifier';
-import { EventEmitter } from '@angular/core';
-import { EventModel } from '../shared/event.model';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,13 +12,12 @@ import { catchError } from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
 
-  public model = new RegisterModel();
-
-  @Output() registerEvent = new EventEmitter();
+  public model = new UserModel();
 
   constructor(
     private notify: NotifierService,
-    private service: RegisterService) {
+    private service: RegisterService,
+    private router: Router) {
     this.model.username = '';
     this.model.password = '';
   }
@@ -29,9 +27,11 @@ export class RegisterComponent implements OnInit {
 
   sendForm() {
     this.service.RegisterUser(this.model).subscribe(
-      data => this.registerEvent.emit(new EventModel('success', 'User registerd with sucess!')),
+      data => {
+        this.notify.notify('success', 'User registerd with sucess!');
+        this.router.navigate(['/login']);
+      },
       err => {
-        console.log(JSON.stringify(err));
         err.error.value.forEach(error => {
           this.notify.notify('error', error.description);
         });

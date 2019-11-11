@@ -12,6 +12,7 @@ import { NotifierModule } from 'angular-notifier';
 import { RegisterService } from './register/register.service';
 import { FriendsService } from './friends/friends.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
       }
     })
   ],
-  providers: [RegisterService, FriendsService],
+  providers: [RegisterService, FriendsService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

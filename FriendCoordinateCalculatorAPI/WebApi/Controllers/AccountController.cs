@@ -43,7 +43,12 @@ namespace WebApi.Controllers
             if (result.Succeeded)
             {
                 var appUser = _userManager.Users.SingleOrDefault(r => r.UserName == model.UserName);
-                return await GenerateJwtToken(model.UserName, appUser);
+                var token = await GenerateJwtToken(model.UserName, appUser);
+                return new
+                {
+                    token,
+                    userName = model.UserName
+                };
             }
 
             throw new ApplicationException("INVALID_LOGIN_ATTEMPT");
