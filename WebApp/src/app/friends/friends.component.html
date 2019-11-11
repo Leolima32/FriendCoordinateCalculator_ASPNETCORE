@@ -1,10 +1,24 @@
-<div class="card">
+<div class="card field" *ngIf="closestFriends">
   <div class="card-content">
     <p class="title">
-      “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+      you are currently visiting: {{current.name}} on: ({{current.position.latitude}}, {{current.position.longitude}})
     </p>
     <p class="subtitle">
-      Jeff Atwood
+      Your closest friends are:
+    </p>
+    <ul>
+      <li *ngFor="let item of closestFriends">{{item.name}} | distance: {{item.distanceToCurrentPosition}}</li>
+    </ul>
+  </div>
+</div>
+
+<div *ngFor="let friend of friendsList" class="card" (click)="visitFriend(friend)">
+  <div class="card-content">
+    <p class="title">
+      {{friend.name}} ({{friend.position.latitude}}, {{friend.position.longitude}})
+    </p>
+    <p class="subtitle">
+      Distance to Current Postion: {{friend.distanceToCurrentPosition}}
     </p>
   </div>
 </div>

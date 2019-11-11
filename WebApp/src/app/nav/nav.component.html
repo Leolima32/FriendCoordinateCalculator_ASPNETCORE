@@ -1,0 +1,22 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" class="navbar-item">
+            Home
+        </a>
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="navbar-item">
+            Login
+        </a>
+        <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="navbar-item">
+            Register
+        </a>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link subtitle">
+                <figure class="image is-32x32 is-hidden-touch"
+                    style="background-image: url(&quot;https://mythril.nyc3.cdn.digitaloceanspaces.com/users/avatars/default.jpg&quot;); background-size: cover; background-position: center top; background-repeat: no-repeat; box-shadow: rgb(225, 231, 245) 0px 0px 0px 1px inset; margin-right: 10px;">
+                </figure>
+                {{userName}}
+            </a>
+        </div>
+    </div>
+</nav>

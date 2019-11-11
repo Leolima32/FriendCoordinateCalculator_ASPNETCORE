@@ -19,12 +19,12 @@ namespace Domain.Entities
         public Coordinate Position { get; private set; }
 
         [BsonIgnore]
-        public double DistanceToCurrentPositon { get; set; }
+        public double DistanceToCurrentPosition { get; set; }
 
         public double CalculateDistance(Coordinate currentPosition)
         {
-            DistanceToCurrentPositon = Math.Sqrt(Math.Pow((Position.Longitude - currentPosition.Longitude),2) + Math.Pow((Position.Latitude - currentPosition.Latitude),2));
-            return DistanceToCurrentPositon;
+            DistanceToCurrentPosition = Math.Sqrt(Math.Pow((Position.Longitude - currentPosition.Longitude),2) + Math.Pow((Position.Latitude - currentPosition.Latitude),2));
+            return DistanceToCurrentPosition;
         }
     }
 }

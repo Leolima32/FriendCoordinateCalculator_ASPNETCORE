@@ -13,13 +13,15 @@ import { RegisterService } from './register/register.service';
 import { FriendsService } from './friends/friends.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login/login.service';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FriendsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

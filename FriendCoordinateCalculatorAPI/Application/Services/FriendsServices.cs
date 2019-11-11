@@ -42,7 +42,7 @@ namespace Application.Services
                 var calcLog = new CalculationHistoryLog(friend, friend.CalculateDistance(currentFriend.Position), DateTime.Now);
                 await _logRepository.SaveCalculationHistory(calcLog);
             }
-            return friendsList.OrderBy(friend => friend.DistanceToCurrentPositon).Take(3);
+            return friendsList.OrderBy(friend => friend.DistanceToCurrentPosition).Take(3);
         }
 
         public async Task<IEnumerable<Friend>> GetAll()

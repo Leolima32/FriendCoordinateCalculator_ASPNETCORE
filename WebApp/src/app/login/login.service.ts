@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class LoginService {
-    username: string;
+    username = 'leo';
     constructor(private httpClient: HttpClient) { }
 
     login(user: UserModel): Observable<any> {
