@@ -26,3 +26,6 @@ npm install
 ng serve
 ```
 
+
+### Documentation
+You can find API endpoints explanations on localhost:5000/swagger
