@@ -6,7 +6,7 @@
     </ul>
   </div>
   <app-current-friend [closestFriends]="closestFriends" [current]="current" [hidden]="!showCurrentFriend"></app-current-friend>
-  <app-add-friend [hidden]="!showCreate"></app-add-friend>
+  <app-add-friend [hidden]="!showCreate" (notifyEvent)="reload($event)"></app-add-friend>
 </div>
 
 <div *ngFor="let friend of friendsList" class="card" (click)="visitFriend(friend)">
@@ -17,5 +17,12 @@
     <p class="subtitle">
       Distance to Current Postion: {{friend.distanceToCurrentPosition}}
     </p>
+  </div>
+</div>
+
+<div *ngIf="!friendsList.length" class="card">
+  <div class="card-content">
+    <h1 class="title">You currently have no friends</h1>
+    <img src="src\assets\images\mirage-list-is-empty.png" alt="Empty List"/>
   </div>
 </div>

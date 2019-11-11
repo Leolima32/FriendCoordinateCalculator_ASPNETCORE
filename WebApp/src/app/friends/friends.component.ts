@@ -20,18 +20,7 @@ export class FriendsComponent implements OnInit {
   constructor(private friendsService: FriendsService, private notifierService: NotifierService, private router: Router) { }
 
   ngOnInit() {
-    this.friendsService.getAllFriends().subscribe(
-      data => {
-        this.friendsList = data;
-      },
-      err => {
-        if (err.status === 401) {
-          localStorage.removeItem('token');
-          this.router.navigate(['/login']);
-        }
-        this.notifierService.notify('error', err.message);
-      }
-    );
+    this.refreshFriendsList();
   }
 
   visitFriend(friend: Friend) {
@@ -58,6 +47,25 @@ export class FriendsComponent implements OnInit {
     this.showCreate = true;
     document.getElementById('current-tab').classList.remove('is-active');
     document.getElementById('create-tab').classList.add('is-active');
+  }
+
+  reload($event) {
+    this.refreshFriendsList();
+  }
+
+  refreshFriendsList() {
+    this.friendsService.getAllFriends().subscribe(
+      data => {
+        this.friendsList = data;
+      },
+      err => {
+        if (err.status === 401) {
+          localStorage.removeItem('token');
+          this.router.navigate(['/login']);
+        }
+        this.notifierService.notify('error', err.message);
+      }
+    );
   }
 
 }
