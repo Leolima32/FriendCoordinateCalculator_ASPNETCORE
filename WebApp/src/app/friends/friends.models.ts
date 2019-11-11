@@ -1,9 +1,10 @@
 export class Friend {
+
     constructor(
-        _id: string,
-        name: string,
-        position: Coordianate,
-        distanceToCurrentPosition: number) { }
+        public _id: string,
+        public name: string,
+        public position: Coordianate,
+        public distanceToCurrentPosition: number) { }
 
 }
 

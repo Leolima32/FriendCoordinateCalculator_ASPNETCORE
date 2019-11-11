@@ -34,9 +34,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
       err => {
-        err.error.value.forEach(error => {
-          this.notify.notify('error', error.description);
-        });
+        if (err.error.value) {
+          err.error.value.forEach(error => {
+            this.notify.notify('error', error.description);
+          });
+        } else {
+          this.notify.notify('error', err.message);
+        }
       }
     );
   }

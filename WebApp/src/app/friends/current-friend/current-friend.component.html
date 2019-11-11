@@ -1,0 +1,11 @@
+<div class="card-content">
+  <p class="title">
+    you are currently visiting: {{current.name}} on: ({{current.position.latitude}}, {{current.position.longitude}})
+  </p>
+  <p *ngIf="closestFriends" class="subtitle">
+    Your closest friends are:
+  </p>
+  <ul *ngIf="closestFriends">
+    <li *ngFor="let item of closestFriends">{{item.name}} | distance: {{item.distanceToCurrentPosition}}</li>
+  </ul>
+</div>

@@ -14,6 +14,8 @@ import { FriendsService } from './friends/friends.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { NavComponent } from './nav/nav.component';
+import { CurrentFriendComponent } from './friends/current-friend/current-friend.component';
+import { AddFriendComponent } from './friends/add-friend/add-friend.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NavComponent } from './nav/nav.component';
     FriendsComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
+    CurrentFriendComponent,
+    AddFriendComponent
   ],
   imports: [
     BrowserModule,

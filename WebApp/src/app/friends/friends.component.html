@@ -1,15 +1,12 @@
-<div class="card field" *ngIf="closestFriends">
-  <div class="card-content">
-    <p class="title">
-      you are currently visiting: {{current.name}} on: ({{current.position.latitude}}, {{current.position.longitude}})
-    </p>
-    <p class="subtitle">
-      Your closest friends are:
-    </p>
+<div class="card field">
+  <div class="tabs">
     <ul>
-      <li *ngFor="let item of closestFriends">{{item.name}} | distance: {{item.distanceToCurrentPosition}}</li>
+      <li class="is-active" id="current-tab"><a (click)="showCurrentTab()">Current visiting</a></li>
+      <li id="create-tab"><a (click)="showCreateTab()">Create friend</a></li>
     </ul>
   </div>
+  <app-current-friend [closestFriends]="closestFriends" [current]="current" [hidden]="!showCurrentFriend"></app-current-friend>
+  <app-add-friend [hidden]="showCreate"></app-add-friend>
 </div>
 
 <div *ngFor="let friend of friendsList" class="card" (click)="visitFriend(friend)">

@@ -14,6 +14,9 @@ export class FriendsComponent implements OnInit {
   friendsList: Friend[];
   closestFriends: Friend[];
   current: Friend;
+
+  showCurrentFriend = true;
+  showCreate = false;
   constructor(private friendsService: FriendsService, private notifierService: NotifierService, private router: Router) { }
 
   ngOnInit() {
@@ -41,6 +44,20 @@ export class FriendsComponent implements OnInit {
         this.notifierService.notify('error', err.message);
       }
     )
+  }
+
+  showCurrentTab() {
+    this.showCurrentFriend = true;
+    this.showCreate = false;
+    document.getElementById('current-tab').classList.add('is-active');
+    document.getElementById('create-tab').classList.remove('is-active');
+  }
+
+  showCreateTab() {
+    this.showCurrentFriend = false;
+    this.showCreate = true;
+    document.getElementById('current-tab').classList.remove('is-active');
+    document.getElementById('create-tab').classList.add('is-active');
   }
 
 }
