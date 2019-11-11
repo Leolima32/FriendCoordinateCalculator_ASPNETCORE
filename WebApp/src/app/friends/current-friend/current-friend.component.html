@@ -6,6 +6,6 @@
     Your closest friends are:
   </p>
   <ul *ngIf="closestFriends">
-    <li *ngFor="let item of closestFriends">{{item.name}} | distance: {{item.distanceToCurrentPosition}}</li>
+    <li *ngFor="let item of closestFriends">{{item.name}}  (distance: {{item.distanceToCurrentPosition | number:'1.1-2':'pt'}})</li>
   </ul>
 </div>

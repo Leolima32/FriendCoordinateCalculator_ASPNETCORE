@@ -17,8 +17,12 @@ import { NavComponent } from './nav/nav.component';
 import { CurrentFriendComponent } from './friends/current-friend/current-friend.component';
 import { AddFriendComponent } from './friends/add-friend/add-friend.component';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import localePtBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
+
+registerLocaleData(localePtBr);
 
 @NgModule({
   declarations: [
