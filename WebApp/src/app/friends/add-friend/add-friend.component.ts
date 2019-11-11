@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
   templateUrl: './add-friend.component.html',
   styleUrls: ['./add-friend.component.css']
 })
+
 export class AddFriendComponent implements OnInit {
 
   public model: AddFriendModel = new AddFriendModel('', 0, 0);

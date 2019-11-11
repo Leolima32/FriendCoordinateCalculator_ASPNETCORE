@@ -16,6 +16,9 @@ import { LoginService } from './login/login.service';
 import { NavComponent } from './nav/nav.component';
 import { CurrentFriendComponent } from './friends/current-friend/current-friend.component';
 import { AddFriendComponent } from './friends/add-friend/add-friend.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { AddFriendComponent } from './friends/add-friend/add-friend.component';
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     FormsModule,
+    NgxMaskModule.forRoot(options),
     NotifierModule.withConfig({
       position: {
         horizontal: {
