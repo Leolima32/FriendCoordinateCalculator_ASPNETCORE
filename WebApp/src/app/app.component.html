@@ -1,4 +1,23 @@
-<div class="container">
-    <router-outlet (registerEvent)="reciverNotification($event)"></router-outlet>
-</div>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="navbar-item">
+            Home
+        </a>
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="navbar-item">
+            Login
+        </a>
+        <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="navbar-item">
+            Register
+        </a>
+    </div>
+</nav>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-three-fifths is-offset-one-fifth">
+                <router-outlet (registerEvent)="reciverNotification($event)"></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>
 <notifier-container></notifier-container>
