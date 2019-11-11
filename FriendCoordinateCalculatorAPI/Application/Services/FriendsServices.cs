@@ -36,7 +36,7 @@ namespace Application.Services
         public async Task<IEnumerable<Friend>> ClosestFriends(string _id)
         {
             Friend currentFriend = await _friendsRepository.GetById(_id);
-            IEnumerable<Friend> friendsList = await _friendsRepository.GetAll();
+            IEnumerable<Friend> friendsList = await _friendsRepository.GetAllExcept(_id);
             foreach (Friend friend in friendsList)
             {
                 var calcLog = new CalculationHistoryLog(friend, friend.CalculateDistance(currentFriend.Position), DateTime.Now);

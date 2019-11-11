@@ -39,6 +39,11 @@ namespace Infra.Repositories
             return await _context.Friends.Find(_ => true).ToListAsync();
         }
 
+        public async Task<IEnumerable<Friend>> GetAllExcept(string _id)
+        {
+            return await _context.Friends.Find(_ => _._id != ObjectId.Parse(_id)).ToListAsync();
+        }
+
         public async Task<Friend> GetById(string id)
         {
             return await _context.Friends

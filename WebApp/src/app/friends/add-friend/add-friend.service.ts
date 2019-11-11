@@ -6,15 +6,11 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AddFriendService {
+    constructor(private httpClient: HttpClient) { }
 
-    customHeaders: HttpHeaders;
-
-    constructor(private httpClient: HttpClient) {
-        this.customHeaders = new HttpHeaders({ Authorization: `bearer ${localStorage.getItem('token')}` });
-    }
-
-    addFriend(model): Observable<any> {
+    addFriend(model: AddFriendModel): Observable<any> {
+        const customHeaders = new HttpHeaders({ Authorization: `bearer ${localStorage.getItem('token')}` });
         return this.httpClient.post(`${environment.API_ROOT}/api/friends`,
-            { name: model.name, position: { latitude: model.latitude, longitude: model.longitude } }, { headers: this.customHeaders });
+            { name: model.name, position: { latitude: model.latitude, longitude: model.longitude } }, { headers: customHeaders });
     }
 }

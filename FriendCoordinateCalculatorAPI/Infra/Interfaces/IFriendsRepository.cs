@@ -10,5 +10,6 @@ namespace Infra.Interfaces
         Task AddFriend(Friend friend);
         Task<Friend> GetById(string id);
         Task<IEnumerable<Friend>> GetAll();
+        Task<IEnumerable<Friend>> GetAllExcept(string _id);
     }
 }
