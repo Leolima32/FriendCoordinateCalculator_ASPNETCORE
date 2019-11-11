@@ -1,27 +1,28 @@
-# WebApp
+### Prerequisites
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+- The latest SDK and tools can be downloaded from https://dot.net/core. 
+- Global Angular CLI version installed (6+)
+- Read the .NET Core 2.0 [release announcement](https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-net-core-2-0/) for more information.
+- the latest Node.js installer could be found [here](https://nodejs.org/en/)
+- A MongoDb running instance on port 27017
+- Visual Studio Code (Windows, Linux or MacOS) Installed.
 
-## Development server
+### Installing
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### API
 
-## Code scaffolding
+```
+cd FriendCoordinateCalculator_ASPNETCORE\FriendCoordinateCalculatorAPI\WebApi
+dotnet restore
+dotnet run
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+#### Web APP
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+cd FriendCoordinateCalculator_ASPNETCORE\WebApp
+npm install
+ng serve
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
