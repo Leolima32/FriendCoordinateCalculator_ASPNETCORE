@@ -13,7 +13,7 @@ export class FriendsComponent implements OnInit {
 
   friendsList: Friend[];
   closestFriends: Friend[];
-  current: Friend;
+  current: Friend = new Friend('', '', new Coordianate(0, 0), 0);
 
   showCurrentFriend = true;
   showCreate = false;
@@ -36,7 +36,7 @@ export class FriendsComponent implements OnInit {
 
   visitFriend(friend: Friend) {
     this.friendsService.getClosestFriends(friend._id).subscribe(
-      data => { 
+      data => {
         this.closestFriends = data;
         this.current = friend;
       },

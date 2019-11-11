@@ -6,7 +6,7 @@
     </ul>
   </div>
   <app-current-friend [closestFriends]="closestFriends" [current]="current" [hidden]="!showCurrentFriend"></app-current-friend>
-  <app-add-friend [hidden]="showCreate"></app-add-friend>
+  <app-add-friend [hidden]="!showCreate"></app-add-friend>
 </div>
 
 <div *ngFor="let friend of friendsList" class="card" (click)="visitFriend(friend)">

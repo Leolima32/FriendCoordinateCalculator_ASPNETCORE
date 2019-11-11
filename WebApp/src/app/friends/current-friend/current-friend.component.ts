@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Friend } from '../friends.models';
+import { Friend, Coordianate } from '../friends.models';
 
 @Component({
   selector: 'app-current-friend',
@@ -8,7 +8,7 @@ import { Friend } from '../friends.models';
 })
 export class CurrentFriendComponent implements OnInit {
 
-  @Input() current: Friend
+  @Input() current = new Friend('', '', new Coordianate(0, 0), 0);
   @Input() closestFriends: Friend[]
 
   constructor() { }

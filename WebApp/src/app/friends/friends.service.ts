@@ -6,17 +6,19 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class FriendsService {
 
-    customHeaders: HttpHeaders;
-
-    constructor(private httpClient: HttpClient) {
-        this.customHeaders = new HttpHeaders({ Authorization: `bearer ${localStorage.getItem('token')}` });
-    }
+    constructor(private httpClient: HttpClient) { }
 
     public getAllFriends(): Observable<any> {
-        return this.httpClient.get(`${environment.API_ROOT}/api/friends`, { headers: this.customHeaders });
+        const headers = this.getHeaders();
+        return this.httpClient.get(`${environment.API_ROOT}/api/friends`, { headers: headers });
     }
 
     public getClosestFriends(_id: string): Observable<any> {
-        return this.httpClient.get(`${environment.API_ROOT}/api/friends/${_id}`, { headers: this.customHeaders });
+        const headers = this.getHeaders();
+        return this.httpClient.get(`${environment.API_ROOT}/api/friends/${_id}`, { headers: headers });
+    }
+
+    getHeaders() {
+        return new HttpHeaders({ Authorization: `bearer ${localStorage.getItem('token')}` });
     }
 }
